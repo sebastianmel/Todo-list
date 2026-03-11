@@ -1,3 +1,9 @@
+#Screens
+Avec taches :
+<img width="724" height="450" alt="image" src="https://github.com/user-attachments/assets/5dd85100-88e5-42e6-b008-96ce039307e7" />
+Vide :
+<img width="1283" height="284" alt="image" src="https://github.com/user-attachments/assets/47f312e7-880a-476b-906a-b60ac3a86bc5" />
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
