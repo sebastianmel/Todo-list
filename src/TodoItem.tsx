@@ -9,25 +9,27 @@ type Todo = {
 }
 type Props ={
     todo: Todo
+    onDelete: () => void
+    isSelected?: boolean
+    onToggleSelect?: (id: number) => void
 }
-const TodoItem = ({todo}: Props) =>{
-    function deleteTodo(id: number): void {
-        console.log(`Deleting todo with id: ${id}`);
-        
-    }
+const TodoItem = ({todo, onDelete ,isSelected, onToggleSelect}: Props) =>{
 
     return (
         <li className="p-3">
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
-                    <input type="checkbox" className="checkbox checkbox-primary checkbox-sm" />
+                    <input type="checkbox" className="checkbox checkbox-primary checkbox-sm"
+                    checked={isSelected}
+                    onChange={() => onToggleSelect && onToggleSelect(todo.id)}
+                    />
                     <span className="text-md font-bold">{todo.text}</span>
                     <span  className={`badge badge-soft ${todo.priority === "Urgente" ? "badge-error" : todo.priority === "Moyenne" ? "badge-warning" : "badge-success"}`}>
                         {todo.priority}
                     </span>
                 </div>
-                <button className="btn btn-sm btn-error btn-soft">
-                    <Trash className="w-4 h-4" onClick={() => deleteTodo(todo.id)}/>
+                <button className="btn btn-sm btn-error btn-soft" onClick={onDelete}>
+                    <Trash className="w-4 h-4" />
                 </button>
             </div>
         </li>
